@@ -14,7 +14,7 @@
         <div style="text-align: center;"><h2>Union Bank of India</h2></div>
 		<div><h4>Statement</h4></div>
         <div>
-        <p>Dear Customer, please find below statement for a/c <b></b>
+        <p>Dear Customer, please find below statement for a/c <b>[[${data.acctNum}]] [[${data.cif}]]</b>
 		</p>
 		
       </div>
@@ -29,7 +29,15 @@
         <td>Amount</td>
         <td>Currency</td>
 			</tr>
-			
+			<tr th:each="txndtl, stats: ${data.transactions}">
+					<td th:text="${stats.index + 1}"></td>
+					<td th:text="${txndtl.transactionDate}"></td>
+					<td th:text="${txndtl.id}"></td>
+					<td th:text="${txndtl.transactionParticulars}"></td>
+					<td th:text="${txndtl.transactionType}"></td>
+          <td th:text="${txndtl.amount}"></td>
+          <td th:text="${txndtl.transactionCurrencyCode}"></td>
+				</tr>
 		</table>
 		<br/>
     <br/>
