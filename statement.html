@@ -28,7 +28,6 @@
         <td>Type</td>
         <td>Amount</td>
         <td>Currency</td>
-			<tr>
 			<tr th:each="txndtl, stats: ${data.transactions}">
 					<td th:text="${stats.index + 1}"></td>
 					<td th:text="${txndtl.transactionDate}"></td>
