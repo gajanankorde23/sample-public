@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+		<title>Interest Certificate</title>
+	<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+	</style>
+	</head>
+    <body class="container">
+        <div>
+        <p>Dear <b> [[${data.name}]], your deposit account has been created successfully, please find details below. </b>
+		</p>
+		
+      </div>
+		<table>
+			<tr>
+				<td>Certificate No.**</td>
+				<td>Deposit / XXX-60082641</td>
+			<tr>
+			<tr>
+				<td>Customer ID</td>
+				<td>[[${data.cif}]]</td>
+			<tr>
+			<tr>
+				<td>Amount</td>
+				<td>[[${data.depositAmount}]]</td>
+			<tr>
+			<tr>
+				<td>Period</td>
+				<td>[[${data.depositTerm.day}]] days [[${data.depositTerm.month}]] month [[${data.depositTerm.year}]] year </td>
+			<tr>
+			<tr>
+				<td>Tax Saver Scheme</td>
+				<td>[[${data.isTaxSaver}]]</td>
+			<tr>
+			<tr>
+				<td>Interest Rate</td>
+				<td>[[${data.interestRate}]]% p.a.</td>
+			<tr>
+			<tr>
+				<td>Start Date</td>
+				<td>[[${data.startDate}]]</td>
+			<tr>
+			<tr>
+				<td>Maturity Date</td>
+				<td>[[${data.maturityDate}]]</td>
+			<tr>
+		</table>
+		<br/>
+		<p>* Tax Amount is based on the current tax rate and current threshold value specified by the Govt. Tax rates are subject to change. Tax status and tax amount may change subject to :</p>
+		<ul>
+			<li>Any change in tax rate.The present rate at which tax is deducted is 10%.</li>
+			<li>The total interest in the folio crossing the threshold limit for tax exemption and 15G submission.</li>
+			<li>Submission of PAN details for the folio. Non submission of PAN would attract a penalty TDS @20%.</li>
+			<li>Amount printed on ledger sheet will vary from time to time based on change in customer ID tax status.</li>
+			<li>Interest exceeding the exemption limit.15G cannot be submitted by the deductee if the total interest on deposits exceeds the exemption limit of 250000/-</li>
+		<ul>
+		<br><br/>
+		<p>
+		**The deposit receipt issued is subject to cheque realisation/ receipt of funds in company's account. In case of cheque dishonour/non receipt of funds, the deposit receipt stands cancelled automatically. <br/>
+		Note: If the interest amount is not sufficient to recover the TDS amount, the same may be recovered from the principal amount of the fixed deposit.<br/><br/>
+		<i>This being a computer generated statement, does not require signature.</i>
+		</p>
+   
+</body>
+</html>
