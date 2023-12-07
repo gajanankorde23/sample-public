@@ -6,26 +6,18 @@
 </head>
 <body>
   <div style="font-family: Arial, sans-serif;">
-    
     <br><br>
     <p>Date: [Date]</p>
-    <p>Name: [[${data.fname}]]</p>
+    <p>Name: [[${data.customer.fname}]]</p>
     <p>Name of Bank: Union Bank of India</p>
-    <p>Street Address: [[${data.addressLine1}]]</p>
-    <p>City, State, Zip Code: [[[${data.cityCode}]], [[${data.stateCode}]], [[${data.pinCode}]]]</p>
-
-    
-    <p>Dear [[${data.fname}]],</p>
-
+    <p>Street Address: [[${data.bankInfo.address.addrLine1}]]</p>
+    <p>City, State, Zip Code: [[[${data.bankInfo.address.cityCode}]], [[${data.bankInfo.address.stateCode}]], [[${data.bankInfo.address.pinCode}]]]</p>
+    <p>Dear [[${data.customer.fname}]],</p>
     <p>We are acknowledging receipt of your application on [Date of Receipt]. Based upon our initial review, Union Bank of India qualifies as an eligible bank, and the application qualifies for expedited review. Unless notified otherwise, your application should be acted on by [Date].</p>
-
     <p>You should include the CAIS control number on any correspondence related to this filing.</p>
-
     <p>If you have any questions, please contact Union Bank of India.</p>
-
     <p>Sincerely,</p>
     <p>-Signature<br>Name and Title</p>
-
     <p>cc: Official File</p>
   </div>
 </body>
