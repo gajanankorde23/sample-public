@@ -1,24 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Acknowledgment Letter</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>FD Statement</title>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgb(204,204,204); 
+        font: 12pt "Tahoma";
+        font-family:"Calibri", sans-serif;
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        background: white;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        width: 21cm;
+        height: 29.7cm; 
+    }
+    .subpage {
+        padding: 1cm;
+    }
+    .heading {
+        padding-left: 1cm;
+        padding-right: 1cm;
+    }
+    p {
+        margin:0px;
+    }
+    table {
+        width: 100%;
+        margin-top: 10px;
+    }
+    table th {
+        border-top: 1px dashed #000000;
+        border-bottom: 1px dashed #000000;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+    </style>
 </head>
 <body>
-  <div style="font-family: Arial, sans-serif;">
-    <br><br>
-    <p>Date: 2023-12-07</p>
-    <p>Name: John</p>
-    <p>Name of Bank: Union Bank of India</p>
-    <p>Street Address: Bandra East - Mumbai</p>
-    <p>City, State, Zip Code: Mumbai , Maharashtra, 400708</p>
-    <p>Dear John,</p>
-    <p>We are acknowledging receipt of your application on [Date of Receipt]. Based upon our initial review, Union Bank of India qualifies as an eligible bank, and the application qualifies for expedited review. Unless notified otherwise, your application should be acted on by [Date].</p>
-    <p>You should include the CAIS control number on any correspondence related to this filing.</p>
-    <p>If you have any questions, please contact Union Bank of India.</p>
-    <p>Sincerely,</p>
-    <p>-Signature<br>Name and Title</p>
-    <p>cc: Official File</p>
-  </div>
+    <div class="book">
+        <div class="page">
+            <div class="heading">
+                <div style="text-align: center;padding-top: 5%;"><strong><u>ACKNOWLEDGEMENT FOR SSA ACCOUNT OPENING</u></strong></div>
+            </div>
+			<br/>
+            <div class="subpage">
+                
+                <table cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td>Child's Name</td>
+                            <td colspan="3">[[${data.beneficiary.fname}]] [[${data.beneficiary.mname}]] [[${data.beneficiary.lname}]]</td>
+                        </tr>
+                        <tr>
+                            <td>Reference ID</td>
+                            <td colspan="3">[[${data.transRefNumber}]]</td>
+                        </tr>
+                    </tbody>
+                </table>
+				<br/>
+				<br/>
+                <div style="margin-top: 20px;text-align: center;">
+                    <p style="text-align: left;">
+						CONGRATULATIONS. Your request for opening a Sukanya Samriddhi Account favouring GIRL CHILD
+						with us is successfully registered. Please take a print-out of the provided application and contact
+						the branch with required documents.
+						PLEASE NOTE THAT THE ABOVE REGISTRATION FOR ACCOUNT OPENING IS VALID FOR 30 DAYS
+						ONLY.*
+					</p>    
+            </div>
+            </div>    
+        </div>
+    </div>
+
 </body>
 </html>
