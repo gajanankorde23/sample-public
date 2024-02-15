@@ -27,14 +27,7 @@
         <td>Amount</td>
         <td>Currency</td>
 			</tr>
-			<tr th:each="txndtl, stats: ${data.transactions}">
-					<td th:text="${txndtl.transactionDate}"></td>
-        	<td th:text="${txndtl.acctNum}"></td>
-					<td th:text="${txndtl.transactionParticulars}"></td>
-          <td th:text="${txndtl.amount}"></td>
-          <td th:text="${txndtl.transactionCurrencyCode}"></td>
-					
-				</tr>
+			
 		</table>
 		<br/>
     <br/>
