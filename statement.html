@@ -1,46 +1,130 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html>
-    <head>
-		<title>Statement</title>
-	<style>
-		table, th, td {
-		  border: 1px solid black;
-		  border-collapse: collapse;
-		}
-	</style>
-	</head>
-    <body class="container">
-        <div style="text-align: center;"><h2>Union Bank of India</h2></div>
-		<div><h4>Statement</h4></div>
-        <div>
-        <p>Dear Customer ([[${data.cif}]]), please find below statement for a/c <b>[[${data.acctNum}]]</b>
-		</p>
-		
-      </div>
-      <br/>
-		<table>
-			<tr>
-				<td>Transaction Date</td>
-        <td>Reference</td>
-				<td>Description</td>
-        <td>Type</td>
-        <td>Amount</td>
-        <td>Currency</td>
-			</tr>
-			<tr th:each="txndtl, stats: ${data.transactions}">
-					<td th:text="${txndtl.transactionDate}"></td>
-					<td th:text="${txndtl.id}"></td>
-					<td th:text="${txndtl.transactionParticulars}"></td>
-					<td th:text="${txndtl.transactionType}"></td>
-          <td th:text="${txndtl.amount}"></td>
-          <td th:text="${txndtl.transactionCurrencyCode}"></td>
-					
-				</tr>
-		</table>
-		<br/>
-    <br/>
-    <br/>
-		<p>* This is computer generated document and does not require signature</p>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>FD Statement</title>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgb(204,204,204); 
+        font-size: 12px;
+        font-family:"Calibri", sans-serif;
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        background: white;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        width: 21cm;
+        height: 29.7cm; 
+    }
+    .subpage {
+        padding: 1cm;
+    }
+    .heading {
+        padding-left: 1cm;
+        padding-right: 1cm;
+    }
+    p {
+        margin:0px;
+    }
+    table {
+        width: 100%;
+        margin-top: 10px;
+    }
+    table th {
+        border-top: 1px dashed #000000;
+        border-bottom: 1px dashed #000000;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page">
+            <div class="heading">
+                <div style="width: 50%;display: inline-block;">Transaction Details</div>
+                <div style="float: right;">Page 1/1</div>
+            </div>
+            <div class="subpage">
+                <div style="width: 100%;display: inline-block;">                
+                    <p><b>From Date:[[${data.startDate}]]</b></p>   
+                    <p>SSA Guardian Holder No.:</p>
+                    <p>SSA Account Numder      :[[${data.acctNum}]]</p>
+                    <p>Acct. Opened Date:[[${data.acctOpenDate}]]</p>
+                    <p>Address                    :[[${data.beneficiary.contactInfo.postalAddr.addrLine1}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine2}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine3}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine4}]], [[${data.beneficiary.contactInfo.postalAddr.pinCode}]], [[${data.beneficiary.contactInfo.postalAddr.cityCode}]], [[${data.beneficiary.contactInfo.postalAddr.stateCode}]]</p>
+                    <p>Customer PAN No.: </p>
+                    <p>Operative A/c No. :</p>                                                                                                                                                     
+                </div>
+                    
+                    <div style="float: right; margin-top: -100px;">
+                        <p><b> To Date:[[${data.endDate}]]</b></p>
+                        <p> Guardian’s Name:</p>
+                        <p>Name                    :[[${data.fname}]] [[${data.mname}]] [[${data.lname}]]</p>
+                        <p>Maturity Date:[[${data.maturityDate}]]</p>
+                        <p>Mob. No.:</p>
+                        <p>Customer Aadhar No.:</p>
+                        <p> Customer ID:[[${data.cif}]]</p>
+                </div>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Tran Date</th>
+                            <th>Tran Particulars</th>
+                            <th>Debit Balance</th>
+                            <th>Credit Balance</th>
+                            <th>Total Balance</th>
+                            <th>Remarks</th>
+                            <th>Value Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="txndtl, stats: ${data.transactions}">
+                            <td th:text="${txndtl.transactionDate}"></td>
+                            <td th:text="${txndtl.partTransactionType}"></td>
+                            <td th:text="${txndtl.amount}"></td>
+                            <td th:text="${txndtl.currBal}"></td>
+                            <td th:text="${txndtl.transactionRemarks}"></td>
+                            <td th:text="${txndtl.valueDate}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>    
+        </div>
+    </div>
+
 </body>
 </html>
