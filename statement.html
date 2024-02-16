@@ -114,10 +114,8 @@
                         <tr th:each="txndtl, stats: ${data.transactions}">
                             <td th:text="${txndtl.transactionDate}"></td>
                             <td th:text="${txndtl.partTransactionType}"></td>
-                            <td th:if="${txndtl.amount < 0}" th:text="${txndtl.amount}"></td>
-                            <td th:unless="${txndtl.amount < 0}" th:text=""></td>
-                            <td th:if="${txndtl.amount >= 0}" th:text=""></td>
-                            <td th:unless="${txndtl.amount >= 0}" th:text="${txndtl.amount}"></td>
+                            <td th:text="${txndtl.amount}"></td>
+			    <td th:text="${txndtl.amount}"></td>
                             <td th:text="${txndtl.currBal}"></td>
                             <td th:text="${txndtl.transactionRemarks}"></td>
                             <td th:text="${txndtl.valueDate}"></td>
