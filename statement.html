@@ -30,6 +30,14 @@
     .subpage {
         padding: 1cm;
     }
+    .row{
+        display: flex;
+        
+    }
+
+    .column {
+        flex: auto;
+    }
     .heading {
         padding-left: 1cm;
         padding-right: 1cm;
@@ -42,11 +50,14 @@
         margin-top: 10px;
     }
     table th {
-        border-top: 1px dashed #000000;
-        border-bottom: 1px dashed #000000;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        text-align: left;
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        padding: 5px;
+        text-align: center;
+    }
+    table td {
+        border-bottom: 1px solid #000000;
+        padding: 5px;
     }
     
     @page {
@@ -75,54 +86,88 @@
     <div class="book">
         <div class="page">
             <div class="heading">
-                <div style="width: 50%;display: inline-block;">Transaction Details</div>
-                <div style="float: right;">Page 1/1</div>
             </div>
             <div class="subpage">
-                <div style="width: 100%;display: inline-block;">                
-                    <p><b>From Date:[[${data.startDate}]]</b></p>   
-                    <p>SSA Guardian Holder No.:</p>
-                    <p>SSA Account Numder      :[[${data.acctNum}]]</p>
-                    <p>Acct. Opened Date:[[${data.acctOpenDate}]]</p>
-                    <p>Address                    :[[${data.beneficiary.contactInfo.postalAddr.addrLine1}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine2}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine3}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine4}]], [[${data.beneficiary.contactInfo.postalAddr.pinCode}]], [[${data.beneficiary.contactInfo.postalAddr.cityCode}]], [[${data.beneficiary.contactInfo.postalAddr.stateCode}]]</p>
-                    <p>Customer PAN No.: </p>
-                    <p>Operative A/c No. :</p>                                                                                                                                                     
+                <div style="width: 100%; text-align: center; font-weight: bold; font-size: medium;">
+                    <p>
+                        SSA- Download Statement
+                    </p>
                 </div>
-                    
-                    <div style="float: right; margin-top: -100px;">
-                        <p><b> To Date:[[${data.endDate}]]</b></p>
-                        <p> Guardian’s Name:</p>
-                        <p>Name                    :[[${data.fname}]] [[${data.mname}]] [[${data.lname}]]</p>
-                        <p>Maturity Date:[[${data.maturityDate}]]</p>
-                        <p>Mob. No.:</p>
-                        <p>Customer Aadhar No.:</p>
-                        <p> Customer ID:[[${data.cif}]]</p>
+                <br>
+                <div style="margin-left: 20px; font-size: medium; margin-top: 5px;" class="row">
+                    <p class="column">
+                        <b>From Date:[[${data.startDate}]]</b>
+                        <br/>
+                        <br/>
+                        SSA Guardian Holder No.:
+                        <br/>
+                        <br/>
+                        SSA Account Number :[[${data.acctNum}]]
+                        <br/>
+                        <br/>
+                        Acct. Opened Date:[[${data.acctOpenDate}]]
+                        <br/>
+                        <br/>
+                        Address :[[${data.beneficiary.contactInfo.postalAddr.addrLine1}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine2}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine3}]], [[${data.beneficiary.contactInfo.postalAddr.addrLine4}]], [[${data.beneficiary.contactInfo.postalAddr.pinCode}]], [[${data.beneficiary.contactInfo.postalAddr.cityCode}]], [[${data.beneficiary.contactInfo.postalAddr.stateCode}]]
+                        <br/>
+                        <br/>
+                        Customer PAN No.:
+                        <br/>
+                        <br/>
+                        Operative A/c No. :
+                        <br/>
+                        <br/>
+
+                    </p>
+                    <p class="column">
+                        <b>To Date:[[${data.endDate}]]</b>
+                        <br/>
+                        <br/>
+                        Guardian’s Name:
+                        <br/>
+                        <br/>
+                        Name :[[${data.fname}]] [[${data.mname}]] [[${data.lname}]]
+                        <br/>
+                        <br/>
+                        Maturity Date:[[${data.maturityDate}]]
+                        <br/>
+                        <br/>
+                        Mob. No.:
+                        <br/>
+                        <br/>
+                        Customer Aadhar No.:
+                        <br/>
+                        <br/>
+                        Customer ID:[[${data.cif}]]
+                        <br/>
+                        <br/>
+
+                    </p>
                 </div>
-                <table cellpadding="0" cellspacing="0">
+                <table cellpadding='0' cellspacing='0'>
                     <thead>
                         <tr>
-                            <th>Tran Date</th>
-                            <th>Tran Particulars</th>
-                            <th>Debit Balance</th>
-                            <th>Credit Balance</th>
-                            <th>Total Balance</th>
-                            <th>Remarks</th>
-                            <th>Value Date</th>
+                            <th style="border-left: 1px solid #000000;border-right: 1px solid #000000;">Tran Date</th>
+                            <th style="border-right: 1px solid #000000;">Tran Particulars</th>
+                            <th style="border-right: 1px solid #000000;">Debit Balance</th>
+                            <th style="border-right: 1px solid #000000;">Credit Balance</th>
+                            <th style="border-right: 1px solid #000000;">Total Balance</th>
+                            <th style="border-right: 1px solid #000000;">Remarks</th>
+                            <th style="border-right: 1px solid #000000;">Value Date</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr th:each="txndtl, stats: ${data.transactions}">
-                            <td th:text="${txndtl.transactionDate}"></td>
-                            <td th:text="${txndtl.partTransactionType}"></td>
-                            <td th:text="${txndtl.amount}"></td>
-			    <td th:text="${txndtl.amount}"></td>
-                            <td th:text="${txndtl.currBal}"></td>
-                            <td th:text="${txndtl.transactionRemarks}"></td>
-                            <td th:text="${txndtl.valueDate}"></td>
+                            <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
+                            <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td>
+                            <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                            <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                            <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td>
+                            <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td>
+                            <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.valueDate}">&nbsp;</td>
                         </tr>
                     </tbody>
                 </table>
-                
             </div>    
         </div>
     </div>
