@@ -160,15 +160,15 @@
                     </thead>
                     <tbody>
 			    Table Content
-<!--                         <tr th:each="txndtl, stats: ${data.transactions}"> -->
-<!--                             <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
-<!--                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td> -->
-<!--                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td> -->
-<!--                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td> -->
-<!--                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td> -->
-<!--                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td> -->
-<!--                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.valueDate}">&nbsp;</td>  -->
-<!--                         </tr> -->
+                        <tr th:each="txndtl, stats: ${data.transactions}">
+                             <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td>
+                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td>
+                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.valueDate}">&nbsp;</td>
+                         </tr> 
                     </tbody>
                 </table>
             </div>    
