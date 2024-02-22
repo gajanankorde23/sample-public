@@ -98,16 +98,16 @@
                 <br>
                 <div style="margin-left: 20px; font-size: small; margin-top: 5px;" class="row">
                     <p class="column" style="text-align: left; padding-right: 2cm;">
-                        <b>From Date:[[${data.startDate}]]</b>
+                        <b>From Date:</b>
                         <br/>
                         <br/>
                         SSA Guardian Holder No.:
                         <br/>
                         <br/>
-                        SSA Account Number :[[${data.acctNum}]]
+                        SSA Account Number :
                         <br/>
                         <br/>
-                        Acct. Opened Date:[[${data.acctOpenDate}]]
+                        Acct. Opened Date:
                         <br/>
                         <br/>
                         Address :
@@ -122,7 +122,7 @@
 
                     </p>
                     <p class="column" style="text-align: left;">
-                        <b>To Date:[[${data.endDate}]]</b>
+                        <b>To Date:</b>
                         <br/>
                         <br/>
                         Guardian’s Name:
@@ -131,7 +131,7 @@
                         Name :
                         <br/>
                         <br/>
-                        Maturity Date:[[${data.maturityDate}]]
+                        Maturity Date:
                         <br/>
                         <br/>
                         Mob. No.:
@@ -140,7 +140,7 @@
                         Customer Aadhar No.:
                         <br/>
                         <br/>
-                        Customer ID:[[${data.cif}]]
+                        Customer ID:
                         <br/>
                         <br/>
 
@@ -159,15 +159,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr th:each="txndtl, stats: ${data.transactions}">
-                            <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
-                            <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td>
-                            <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
-                            <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
-                            <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td>
-                            <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td>
-                            <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.valueDate}">&nbsp;</td>
-                        </tr>
+			    Table data
+<!--                         <tr th:each="txndtl, stats: ${data.transactions}"> -->
+<!--                             <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
+<!--                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td> -->
+<!--                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td> -->
+<!--                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td> -->
+<!--                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td> -->
+<!--                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td> -->
+<!--                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.valueDate}">&nbsp;</td>  -->
+<!--                         </tr> -->
                     </tbody>
                 </table>
             </div>    
