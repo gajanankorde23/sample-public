@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>Interest Certificate Consolidated-TD</title>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgb(204,204,204); 
+        font-size: 12px;
+        font-family:"Calibri", sans-serif;
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        background: white;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        width: 21cm;
+        height: 29.7cm; 
+    }
+    .subpage {
+        padding: 1cm;
+    }
+    .heading {
+        padding-left: 1cm;
+        padding-right: 1cm;
+    }
+    p {
+        margin:0px;
+    }
+    table {
+        width: 100%;
+        margin-top: 10px;
+    }
+    table th {
+        border-top: 1px dashed #000000;
+        border-bottom: 1px dashed #000000;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page">
+            <div class="heading">
+                <div style="width: 50%;display: inline-block;">Transaction Details</div>
+                <div style="float: right;">Page 1/1</div>
+            </div>
+            <div class="subpage">
+                <div style="width: 100%;">
+                    <div style="width:57%;text-align: center;position: absolute;">
+                        UNION BANK OF INDIA
+                        <br/>
+                        [[${data.bankInfo.branchName}]]
+                    </div>
+                    <div style="float: right;">
+                        22-11-2023
+                    </div>
+                </div>
+                <div style="width: 100%;text-align: center; margin-top: 50px;">
+                    INTEREST CERTIFICATE
+                </div>
+                <div style="width: 100%;text-align: left; margin-top: 20px;">
+                    This is to certify that [[${data.source.name}]] has the following accounts with us
+                    as on date and following are the details of interest paid/collected together
+                    with TDS collected (if any) on interest paid by the bank from 01-04-2023
+                    31-03-2024
+                </div>
+                <div style="width: 100%;display: inline-block; margin-top: 20px;">
+                    <p> Customer :-</p>
+                    <p> [[${data.source.cif}]] [[${data.source.name}]]</p>
+                    <p style="width: 45%;">
+                        CO UNION BANK OF INDIA [[${data.bankInfo.name}]]
+                        [[${data.bankInfo.address.addrLine1}]]
+						[[${data.bankInfo.address.addrLine2}]],
+						[[${data.bankInfo.address.addrLine3}]]
+                        [[${data.bankInfo.address.cityCode}]] - [[${data.bankInfo.address.pinCode}]]
+                        [[${data.bankInfo.address.stateCode}]],[[${data.bankInfo.address.countryCode}]] 
+                    </p>
+                </div>
+
+                <div style="width: 100%;display: inline-block; margin-top: 20px;">
+                    <p> Account 1</p>
+                    <p> [[${data.acctNum}]]</p>
+                    <p style="width: 45%;">
+                        HIG B 269 KALINGA VIHAR
+                        CHHEND COLONY ROURKELA
+                        ROURKELA , ODISHA
+                        769015, INDIA 
+                    </p>
+                    <p style="margin-top: 20px;">SOL : 04921 <span style="padding-left: 36%;">Currency : INR</span></p>
+                </div>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Srl No</th>
+                            <th>Date of <br/> Transaction</th>
+                            <th>Gross <br/>Interest Paid</th>
+                            <th>TDS Collected</th>
+                            <th>Surcharge <br/> Collected</th>
+                            <th>Interest <br/> Collected</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>24-09-2022</td>
+                            <td>5,242.00</td>
+                            <td>524.00</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>25-09-2022</td>
+                            <td>5,408.00</td>
+                            <td>540.00</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan='2'>Total- 049213030000064</th>
+                            <th>10,650.00</th>
+                            <th>1,064.00</th>
+                            <th>0</th>
+                            <th>0</th>
+                        </tr>
+                    </thead>
+                </table>
+
+
+
+                <div style="width: 100%;display: inline-block; margin-top: 20px;">
+                    <p> Account 2</p>
+                    <p> 049213030000064</p>
+                    <p style="width: 45%;">
+                        HIG B 269 KALINGA VIHAR
+                        CHHEND COLONY ROURKELA
+                        ROURKELA , ODISHA
+                        769015, INDIA 
+                    </p>
+                    <p style="margin-top: 20px;">SOL : 04921 <span style="padding-left: 36%;">Currency : INR</span></p>
+                </div>
+                <table cellpadding="0" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Srl No</th>
+                            <th>Date of <br/> Transaction</th>
+                            <th>Gross <br/>Interest Paid</th>
+                            <th>TDS Collected</th>
+                            <th>Surcharge <br/> Collected</th>
+                            <th>Interest <br/> Collected</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>24-09-2022</td>
+                            <td>5,242.00</td>
+                            <td>524.00</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>25-09-2022</td>
+                            <td>5,408.00</td>
+                            <td>540.00</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan='2'>Total- 049213030000064</th>
+                            <th>10,650.00</th>
+                            <th>1,064.00</th>
+                            <th>0</th>
+                            <th>0</th>
+                        </tr>
+                    </thead>
+                </table>
+                
+            </div>    
+        </div>
+    </div>
+
+</body>
+</html>
