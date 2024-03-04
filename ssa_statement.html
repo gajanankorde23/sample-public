@@ -1,44 +1,179 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html>
-    <head>
-		<title>Statement</title>
-	<style>
-		table, th, td {
-		  border: 1px solid black;
-		  border-collapse: collapse;
-		}
-	</style>
-	</head>
-    <body class="container">
-        <div style="text-align: center;"><h2>Union Bank of India</h2></div>
-		<div><h4>Statement</h4></div>
-        <div>
-        <p>Dear Customer, please find below statement for your Sukanya Samriddhi Yojana account</b>
-		</p>
-		
-      </div>
-      <br/>
-		<table>
-			<tr>
-				<td>Transaction Date</td>
-        <td>Account Number</td>
-				<td>Description</td>
-        <td>Amount</td>
-        <td>Currency</td>
-			</tr>
-			<tr th:each="txndtl, stats: ${data.transactions}">
-					<td th:text="${txndtl.transactionDate}"></td>
-        	<td th:text="${txndtl.acctNum}"></td>
-					<td th:text="${txndtl.transactionParticulars}"></td>
-          <td th:text="${txndtl.amount}"></td>
-          <td th:text="${txndtl.transactionCurrencyCode}"></td>
-					
-				</tr>
-		</table>
-		<br/>
-    <br/>
-    <br/>
-		<p>* This is computer generated document and does not require signature</p>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>SSA Download Statement</title>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgb(204,204,204); 
+        font-size: 12px;
+        font-family:"Calibri", sans-serif;
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        background: white;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        width: 21cm;
+        height: 29.7cm; 
+    }
+    .subpage {
+        padding: 1cm;
+    }
+    .row{
+        display: flex;
+        
+    }
+
+    .column {
+        flex: auto;
+        width: 50%;
+        
+    }
+    .heading {
+        padding-left: 1cm;
+        padding-right: 1cm;
+    }
+    p {
+        margin:0px;
+    }
+    table {
+        width: 100%;
+        margin-top: 10px;
+    }
+    table th {
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        padding: 5px;
+        text-align: center;
+    }
+    table td {
+        border-bottom: 1px solid #000000;
+        padding: 5px;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page">
+            <div class="heading">
+            </div>
+            <div class="subpage">
+                <div style="width: 100%; text-align: center; font-weight: bold; font-size: medium;">
+                    <p>
+                        SSA- Download Statement
+                    </p>
+                </div>
+                <br>
+                <div style="margin-left: 20px; font-size: small; margin-top: 5px;" class="row">
+                    <p class="column" style="text-align: left; padding-right: 2cm;">
+                        <b>From Date:</b>
+                        <br/>
+                        <br/>
+                        SSA Guardian Holder No.:
+                        <br/>
+                        <br/>
+                        SSA Account Number :
+                        <br/>
+                        <br/>
+                        Acct. Opened Date:
+                        <br/>
+                        <br/>
+                        Address :
+                        <br/>
+                        <br/>
+                        Customer PAN No.:
+                        <br/>
+                        <br/>
+                        Operative A/c No. :
+                        <br/>
+                        <br/>
+
+                    </p>
+                    <p class="column" style="text-align: left;">
+                        <b>To Date:</b>
+                        <br/>
+                        <br/>
+                        Guardian’s Name:
+                        <br/>
+                        <br/>
+                        Name :
+                        <br/>
+                        <br/>
+                        Maturity Date:
+                        <br/>
+                        <br/>
+                        Mob. No.:
+                        <br/>
+                        <br/>
+                        Customer Aadhar No.:
+                        <br/>
+                        <br/>
+                        Customer ID:
+                        <br/>
+                        <br/>
+
+                    </p>
+                </div>
+                <table cellpadding='0' cellspacing='0'>
+                    <thead>
+                        <tr>
+                            <th style="border-left: 1px solid #000000;border-right: 1px solid #000000;">Tran Date</th>
+                            <th style="border-right: 1px solid #000000;">Tran Particulars</th>
+                            <th style="border-right: 1px solid #000000;">Debit Balance</th>
+                            <th style="border-right: 1px solid #000000;">Credit Balance</th>
+                            <th style="border-right: 1px solid #000000;">Total Balance</th>
+                            <th style="border-right: 1px solid #000000;">Remarks</th>
+                            <th style="border-right: 1px solid #000000;">Value Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+			    Table Content
+                        <tr th:each="txndtl, stats: ${data.transactions}">
+                             <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td>
+                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td>
+                             <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.valueDate}">&nbsp;</td>
+                         </tr> 
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+    </div>
+
 </body>
 </html>
