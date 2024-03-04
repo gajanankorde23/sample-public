@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+    <title>FD Statement</title>
+    <style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background: rgb(204,204,204); 
+        font-size: 12px;
+        font-family:"Calibri", sans-serif;
+    }
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .page {
+        background: white;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+        width: 21cm;
+        height: 29.7cm; 
+    }
+    .subpage {
+        padding: 1cm;
+    }
+    .heading {
+        padding-left: 1cm;
+        padding-right: 1cm;
+    }
+    p {
+        margin:0px;
+    }
+  table {
+        width: 100%;
+        margin-top: 10px;
+    }
+    table th {
+        border-top: 1px dashed #000000;
+        border-bottom: 1px dashed #000000;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-align: left;
+    }
+		
+	
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    @media print {
+        html, body {
+            width: 210mm;
+            height: 297mm;        
+        }
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <div class="page">
+            <div class="heading">
+                <div style="width: 50%;display: inline-block;">Transaction Details</div>
+                <div style="float: right;">Page 1/1</div>
+            </div>
+            <div class="subpage">
+               <!-- <div style="width: 100%; float: right;">
+                    <div style="width: 25%; float: right;text-align: center;display: block;">
+                        UNION BANK OF INDIA
+                        JABALPUR CITY BRANCH
+                        1702 MODEL ROAD
+                        NEAR SHASTRI BRIDGE
+                    </div>
+                </div>
+                <div style="width: 25%; float: right;text-align: center;">
+                    PHONE: 0761-2611276
+                </div>-->
+                <div style="width: 100%;display: inline-block;">
+                   <!-- <p>To:</p>
+                    <p>MR PRATIK SHARMA</p>
+                    <p style="width: 45%;">
+                        CO UNION BANK OF INDIA VYAPAR VIHAR
+                        VIKRAM COMPLEX, VYAPAR VIHAR ROAD, BILASPUR
+                        BILASPUR-495004
+                        CHHATTISGARH,INDIA 
+                    </p>
+                    <p>Village : 801975 -Bilaspur (M Corp.) (Part)</p>
+                    <p>Nominee Reg. No: PAYAL SHARMA</p>
+                    <br/>-->
+					
+                    <p>STATEMENT OF ACCOUNT FOR THE PERIOD FROM [[${data.startDate}]] to [[${data.endDate}]] TD003-A/C NO:[[${data.acctNum}]] </p>
+                    <div style="float: right; margin-top: -40px;">CUST ID : [[${data.cif}]]</div>
+                </div>
+               <table cellpadding="0" cellspacing="0">
+			   <thead>
+				<tr>
+					<th>DATE</th>
+					<th>PARTICULARS</th>
+					<th>CHQ.NO.</th>
+					<th>WITHDRAWALS</th>
+					<th>AMOUNT</th>
+					<th>CURRENCY</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr th:each="txndtl, stats: ${data.transactions}">
+					<td th:text="${txndtl.tranDate}"></td>
+					<td th:text="${txndtl.tranParticular}"></td>
+					<td></td>
+					<td></td>
+					<td th:text="${txndtl.tranAmount}"></td>
+					<td></td>
+				</tr>
+				</tbody>
+		</table>
+                <div style="margin-top: 20px;text-align: center;">
+                    <p style="text-align: left;">
+                        Unless constituent notifies the bank immediately of any discrepancy found
+    by him in his statement of Account,it will be taken that he has found the account.
+                    </p>
+                    <p style="text-align: left;margin-top: 10px;margin-bottom: 10px;">To strengthen your Aadhaar, update your Aadhaar if 10 years old</p>
+                    <p style="margin-top: 10px;margin-bottom: 10px; margin-left: 10px;">FASTEST MODE OF FUNDS REMITTANCE-RTGS (UNION BULLET).<br/>
+                        IFSC/MICR code for JABALPUR CITY BRANCHis UBIN0532568/482026001</p>
+                    <p> Contact all India toll Free no. 1800 22 22 44 for your account related queries / services. <br/> IFSC/MICR code for JABALPUR CITY BRANCHi
+                        80490,powrptapp2,PS638712 </p>    
+            </div>
+            </div>    
+        </div>
+    </div>
+
+</body>
+</html>
