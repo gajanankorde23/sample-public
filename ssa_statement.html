@@ -98,22 +98,19 @@
                 <br>
                 <div style="margin-left: 20px; font-size: small; margin-top: 5px;" class="row">
                     <p class="column" style="text-align: left; padding-right: 2cm;">
-                        <b>From Date:</b>
+                        <b>From Date:[[${data.startDate}]]</b>
                         <br/>
                         <br/>
-                        SSA Guardian Holder No.:
+                        SSA Account Number :[[${data.ssaAcctNumber}]]
                         <br/>
                         <br/>
-                        SSA Account Number :
+                        Acct. Opened Date:[[${data.acctOpenDate}]]
                         <br/>
                         <br/>
-                        Acct. Opened Date:
+                        Address :[[${data.address}]]
                         <br/>
                         <br/>
-                        Address :
-                        <br/>
-                        <br/>
-                        Customer PAN No.:
+                        Customer PAN No.:[[${data.customerPanNo}]]
                         <br/>
                         <br/>
                         Operative A/c No. :
@@ -122,25 +119,25 @@
 
                     </p>
                     <p class="column" style="text-align: left;">
-                        <b>To Date:</b>
+                        <b>To Date:[[${data.endDate}]]</b>
                         <br/>
                         <br/>
-                        Guardian’s Name:
+                        Guardian’s Name:[[${data.guardianName}]]
                         <br/>
                         <br/>
-                        Name :
+                        Name :[[${data.name}]]
                         <br/>
                         <br/>
-                        Maturity Date:
+                        Maturity Date:[[${data.maturityDate}]]
                         <br/>
                         <br/>
-                        Mob. No.:
+                        Mob. No.:[[${data.mobNo}]]
                         <br/>
                         <br/>
-                        Customer Aadhar No.:
+                        Customer Aadhar No.:[[${data.customerAadharNo}]]
                         <br/>
                         <br/>
-                        Customer ID:
+                        Customer ID:[[${data.cif}]]
                         <br/>
                         <br/>
 
@@ -151,7 +148,6 @@
                         <tr>
                             <th style="border-left: 1px solid #000000;border-right: 1px solid #000000;">Tran Date</th>
                             <th style="border-right: 1px solid #000000;">Tran Particulars</th>
-                            <th style="border-right: 1px solid #000000;">Debit Balance</th>
                             <th style="border-right: 1px solid #000000;">Credit Balance</th>
                             <th style="border-right: 1px solid #000000;">Total Balance</th>
                             <th style="border-right: 1px solid #000000;">Remarks</th>
@@ -162,8 +158,7 @@
 			    Table Content
                         <tr th:each="txndtl, stats: ${data.transactions}">
                              <td style="text-align: left;border-left: 1px solid #000000;border-right: 1px solid #000000;" th:text="${txndtl.transactionDate}">&nbsp;</td>
-                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.partTransactionType}">&nbsp;</td>
-                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
+                             <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.transactionParticulars}">&nbsp;</td>
                              <td style="text-align: left;border-right: 1px solid #000000;" th:text="${txndtl.amount}">&nbsp;</td>
                              <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.currBal}">&nbsp;</td>
                              <td style="text-align: right;border-right: 1px solid #000000;" th:text="${txndtl.transactionRemarks}">&nbsp;</td>
