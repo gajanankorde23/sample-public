@@ -94,13 +94,14 @@
                 <div style="width: 100%;display: inline-block;">
                    <p>To:</p>
                     <p>[[${data.customer.fname}]]</p>
-                   <!--  <p style="width: 45%;">
-                        CO UNION BANK OF INDIA VYAPAR VIHAR
-                        VIKRAM COMPLEX, VYAPAR VIHAR ROAD, BILASPUR
-                        BILASPUR-495004
-                        CHHATTISGARH,INDIA 
+                     <p style="width: 45%;">
+                       <p>[[${data.customer.contactInfo.postalAddr.addrLine1}]], <BR>
+						BILASPUR
+                        BILASPUR-[[${data.customer.contactInfo.postalAddr.pinCode}]]
+                        <br>CHHATTISGARH,INDIA 
                     </p>
-                    <p>Village : 801975 -Bilaspur (M Corp.) (Part)</p>
+					<br>
+                  <!--  <p>Village : 801975 -Bilaspur (M Corp.) (Part)</p>
                     <p>Nominee Reg. No: PAYAL SHARMA</p>
                     <br/>-->
 					
