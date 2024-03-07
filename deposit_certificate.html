@@ -1,206 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-    <title>FD Receipt</title>
-    <style>
-    body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background: rgb(204,204,204); 
-        font-size: 12px;
-        font-family:"Calibri", sans-serif;
-    }
-    * {
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-    }
-    .page {
-        background: white;
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 0.5cm;
-        box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
-        width: 21cm;
-        height: 29.7cm; 
-    }
-    .subpage {
-        padding: 1cm;
-    }
-    .row{
-        display: flex;
-        
-    }
-
-    .column {
-        flex: 50%;
-    }
-    .heading {
-        padding-left: 1cm;
-        padding-right: 1cm;
-    }
-    p {
-        margin:0px;
-    }
-    table {
-        width: 100%;
-        margin-top: 10px;
-    }
-    table th {
-        border-top: 1px solid #000000;
-        border-bottom: 1px solid #000000;
-        padding: 5px;
-        text-align: center;
-    }
-    table td {
-        border-bottom: 1px solid #000000;
-        padding: 5px;
-    }
-    
-    @page {
-        size: A4;
-        margin: 0;
-    }
-    @media print {
-        html, body {
-            width: 210mm;
-            height: 297mm;        
-        }
-        .page {
-            margin: 0;
-            border: initial;
-            border-radius: initial;
-            width: initial;
-            min-height: initial;
-            box-shadow: initial;
-            background: initial;
-            page-break-after: always;
-        }
-    }
-    </style>
-</head>
-<body>
-    <div class="book">
-        <div class="page">
-            <div class="subpage" >
-                <div style="width: 100%; text-align: center; font-weight: bold;">
-                    <p>
-                        UNION BANK OF INDIA
-                        <br />
-                        BRANCH
-                        <br />
-                        <br />
-                    </p>
-                </div>
-                <div style="width: 100%;padding-top: 1px;padding-bottom: 1px; border-top: 1px solid #ff0000; border-bottom: 1px solid #000000; font-weight: bold;">
-                </div>
-                <div class ="row">
-                <div style="margin-left: 0px; font-weight: normal;margin-top: 5px;" class = "column">
-                    <p>
-                        <br/>
-                        ईएम / टीडीआर / क्यू / क्र EM / TDR / Q / No. <span style = "font-weight: bold; font-size: medium;">260463</span>
-                        <br/>
-                        <br/>
-                        <br/>
-                        Received from ([[${data.customer.fname}]]) 
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        ₹ ([[${data.termDeposit.depositAmount}]])
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        Under
-                        <br/>
-                        के अंतर्गत उक्त योजना पर लागू निबंधनों एवं शर्तों के अध्यधीन प्राप्त. 
-                        <br/>
-                        Subject to terms and conditions applicable to the scheme 
-                        <div class = 'row'>
-                            <div class = 'column'>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                        <br/>
-                                <div style="text-align: center; margin-top: 12px;">
-                                    <hr style = "margin-left: 10px; margin-right: 10px;"/>
-                                    <span style = "margin-left: 10px; margin-right: 10px;font-size: 9px;">प्राधिकृत हस्ताक्षरी Authorised Signatory</span>
-                                </div>
-                            </div>
-                            <div class = 'column'>
-                                <br/>
-                                <br/>
-                                <br/>
-                                <br/>
-                        <br/>
-                                <div style="text-align: center; margin-top: 12px;">
-                                    <hr style = "margin-left: 10px; margin-right: 10px;"/>
-                                    <span style = "margin-left: 10px; margin-right: 10px; font-size: 9px;">प्राधिकृत हस्ताक्षरी Authorised Signatory</span>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </p>
-                </div>
-                <div style="margin-left: 0px; font-weight: normal;margin-top: 5px;" class = "column">
-
-                    <p>
-                        <div style = "margin:5px">
-                        <br />
-                        तिथि / Date: ([[${data.currentDate}]])
-                        <br/>
-                        <br/>
-                        प्रभावी तिथि Effective Date: ([[${data.termDeposit.startDate}]]) 
-                    </div>
-                        <div style = "border: 1px solid #ff0000; padding: 5px">
-                            खाता क्र.
-                            <br/>
-                            Account No: ([[${data.termDeposit.acctNum}]])
-                            <br/>
-                            ग्राहक आईडी
-                            <br/>
-                            Customer ID: ([[${data.termDeposit.cif}]])
-                            <br/>
-                            जमाराशि
-                            <br/>
-                            Deposit Amt. ([[${data.termDeposit.depositAmount}]])
-                            <br/>
-                            अवधि
-                            <br/>
-                            Period [[${data.termDeposit.depositTerm.day}]] days [[${data.termDeposit.depositTerm.month}]] month [[${data.termDeposit.depositTerm.year}]] year 
-                            <br/>
-                            ब्याज दर % प्र.स.
-                            <br/>
-                            Interest % p.a ([[${data.termDeposit.interestPayoutAmount}]])
-                            <br/>
-                            देय तिथि
-                            <br/>
-                            Due Date ([[${data.termDeposit.maturityDate}]])
-                            <br/>
-                            परिपक्वता मूल्य
-                            <br/>
-                            Maturity Value* ([[${data.termDeposit.maturityAmount}]])
-                            <br/>
-                            प्रतिफल १% प्र.व.
-                            <br/>
-                            Yield % p.a 
-                            <br/>
-                            <span style = "font-size: 10px;"><i>*(केवल चक्रवृद्धि ब्याज योजना में लागू)</i><br/><i>(*In case of compounding interest schemes only)</i></span>
-                        </div>
-                    </p>
-                </div>
-            </div>
-            </div>    
-        </div>
-    </div>
-
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+    <head>
+		<title>Deposit Certificate</title>
+	<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+	</style>
+	</head>
+    <body class="container">
+        <div style="text-align: center;"><h2>Union Bank of India</h2></div>
+		<div><h4>Deposit Certificate</h4></div>
+        <div>
+        <p>Dear <b> [[${data.name}]] </b>
+		</p>
+		
+      </div>
+		<table>
+			<tr>
+				<td>Certificate No.**</td>
+				<td>Deposit / XXX-60082641</td>
+			<tr>
+			<tr>
+				<td>Customer ID</td>
+				<td>[[${data.cif}]]</td>
+			<tr>
+			<tr>
+				<td>Amount</td>
+				<td>[[${data.depositAmount}]]</td>
+			<tr>
+			<tr>
+				<td>Period</td>
+				<td>[[${data.depositTerm.day}]] days [[${data.depositTerm.month}]] month [[${data.depositTerm.year}]] year </td>
+			<tr>
+			<tr>
+				<td>Tax Saver Scheme</td>
+				<td>[[${data.isTaxSaver}]]</td>
+			<tr>
+			<tr>
+				<td>Interest Rate</td>
+				<td>[[${data.interestRate}]]% p.a.</td>
+			<tr>
+			<tr>
+				<td>Start Date</td>
+				<td>[[${data.startDate}]]</td>
+			<tr>
+			<tr>
+				<td>Maturity Date</td>
+				<td>[[${data.maturityDate}]]</td>
+			<tr>
+		</table>
+		<br/>
+		<p>* Tax Amount is based on the current tax rate and current threshold value specified by the Govt. Tax rates are subject to change. Tax status and tax amount may change subject to :</p>
+		<ul>
+			<li>Any change in tax rate.The present rate at which tax is deducted is 10%.</li>
+			<li>The total interest in the folio crossing the threshold limit for tax exemption and 15G submission.</li>
+			<li>Submission of PAN details for the folio. Non submission of PAN would attract a penalty TDS @20%.</li>
+			<li>Amount printed on ledger sheet will vary from time to time based on change in customer ID tax status.</li>
+			<li>Interest exceeding the exemption limit.15G cannot be submitted by the deductee if the total interest on deposits exceeds the exemption limit of 250000/-</li>
+		<ul>
+		<br><br/>
+		<p>
+		**The deposit receipt issued is subject to cheque realisation/ receipt of funds in company's account. In case of cheque dishonour/non receipt of funds, the deposit receipt stands cancelled automatically. <br/>
+		Note: If the interest amount is not sufficient to recover the TDS amount, the same may be recovered from the principal amount of the fixed deposit.<br/><br/>
+		<i>This being a computer generated statement, does not require signature.</i>
+		</p>
+   
 </body>
 </html>
